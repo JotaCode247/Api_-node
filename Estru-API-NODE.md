@@ -3,6 +3,7 @@
 api-node
     |-src **Aqui vive todo el codigo real del proyecto**
             |-config : **Configuracion globales**
+                |database.js
             |-controllers : **Controla las peticiones HTTP**
             |-Middlewares **Intermedarios de seguridad y validaciones**
             |models : **Representa las tablas de la base de datos**
@@ -21,12 +22,15 @@ api-node
 ## Instalar express :
 ```npm install express ```
 
+## instalar otras dependencias en api.node
+```npm install dotenv sequelize mysql2 pg pg-hstore```
+
 ## probar app.js
 lo ejecutamos en la terminal
 ```node app.js ```
 ```en elnavegador http://localhost:3000```
 ```terminar ejecuccion del servidor  **ctrl+c**```
 
-
+|.gitignore
 
 

@@ -13,4 +13,8 @@ app.listen(PORT,()=>{
     console.log("Servidor Activo");
 });
 
+module.exports = app;
+
+
+
 

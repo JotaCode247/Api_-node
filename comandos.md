@@ -5,7 +5,7 @@
 | ------------- | ----------------------------- |
 | git --version | Ver la version                |
 | git init      | inicializar repositorio local |
-
+| git  commit - m | mensaje |
 
 
 
