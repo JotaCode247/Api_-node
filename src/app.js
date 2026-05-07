@@ -1,20 +1,17 @@
 const express = require('express');
+const usuarioRoutes = require('./routes/usuario.routes');
+
 const app = express();
-app.get('/',(req,res)=>{
+
+// Middlewares
+app.use(express.json());
+
+// Rutas
+app.use('/api/usuarios', usuarioRoutes);
+
+app.get('/', (req, res) => {
     res.send('ok -- API Funcionando correctamente');
-
-}
-);
-
-//puerto por defecto 3000
-
-const PORT=3000;
-app.listen(PORT,()=>{
-    console.log("Servidor Activo");
 });
 
+// Exportar para que server.js lo use
 module.exports = app;
-
-
-
-

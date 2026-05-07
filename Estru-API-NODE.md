@@ -34,3 +34,41 @@ lo ejecutamos en la terminal
 |.gitignore
 
 
+`cambios en el package json`
+```{
+  "name": "api-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mysql2": "^3.22.2",
+    "pg": "^8.20.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.8"
+  }
+}```
+
+`se puede ejecutar ya con npm start`
+
+`modelo(entidad usuario)`
+```ruta--> src/models/usuarios.model.js```
+
+```services(logica negocio)```
+```ruta src/service.usuario```
+
+```Controlador```
+```ruta=> src/usuario.contoller.js```
+
+# rutas
+``src/routes/usuarios.routes.js``
+
+

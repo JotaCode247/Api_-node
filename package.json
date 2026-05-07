@@ -2,9 +2,9 @@
   "name": "api-node",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +13,7 @@
   "dependencies": {
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "mongoose": "^9.6.1",
     "mysql2": "^3.22.2",
     "pg": "^8.20.0",
     "pg-hstore": "^2.3.4",
