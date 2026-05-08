@@ -11,6 +11,10 @@ const Usuario = sequelize.define('Usuario', {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    apellido:{
+        type: DataTypes.STRING,
+        allowNull:false
+    },
     correo: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -19,10 +23,23 @@ const Usuario = sequelize.define('Usuario', {
             isEmail: true // Validación extra de Sequelize
         }
     },
-    // añadir campo password
+    Password:{ // añadir campo password
+        type:DataTypes.STRING,
+        allowNull:false,
+
+    },
+    rol:{
+        type: DataTypes.ENUM('ADMIN', 'DOCENTE', 'ESTUDIANTE'),
+        defaultValue:'ESTUDIANTE'
+    },
+        estado:{
+        type:DataTypes.BOOLEAN,
+        defaultValue : true
+    }
+    
 }, {
     tableName: 'usuarios',
-    timestamps: false,
+    timestamps: true
 });
 
 module.exports = Usuario;
