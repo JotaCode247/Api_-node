@@ -43,7 +43,7 @@ const login = async (
         throw new Error('Password incorrecta');
     }
 
-    const token = generarJWT((usuario);
+    const token = generarJWT(usuario);
     return {usuario, token};
 
 };

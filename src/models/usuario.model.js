@@ -23,7 +23,7 @@ const Usuario = sequelize.define('Usuario', {
             isEmail: true // Validación extra de Sequelize
         }
     },
-    Password:{ // añadir campo password
+    password:{ // añadir campo password
         type:DataTypes.STRING,
         allowNull:false,
 

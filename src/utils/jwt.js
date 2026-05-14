@@ -1,9 +1,11 @@
 const jwt = require('jsonwebtoken');
-const generarJWT= (usuario)=>{
+
+const generarJWT = (usuario) => {
+
     return jwt.sign(
         {
-            uid: Usuario.id,
-            rol: Usuario.rol
+            uid: usuario.id,
+            rol: usuario.rol
         },
         process.env.JWT_SECRET,
         {
@@ -12,6 +14,6 @@ const generarJWT= (usuario)=>{
     );
 };
 
-module.exports ={
+module.exports = {
     generarJWT
 };
