@@ -25,5 +25,5 @@ app.get('/', (req, res) => {
     res.send('ok -- API Funcionando correctamente');
 });
 
-// Exportar para que server.js lo use
+
 module.exports = app;

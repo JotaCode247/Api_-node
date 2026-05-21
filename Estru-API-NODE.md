@@ -11,7 +11,7 @@ Guía base para crear una API REST profesional usando:
 
 ---
 
-# 📁 Estructura Profesional del Proyecto
+#  Estructura Profesional del Proyecto
 
 ```txt
 api-node/

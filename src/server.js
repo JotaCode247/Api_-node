@@ -6,7 +6,6 @@ const {crearSuperAdmin} = require('./seeders/superadmin.seed');
 
 const PORT = process.env.PORT || 3000;
 
-// Usa la "s" minúscula porque es el objeto que exportaste arriba
 sequelize.sync().then(async() => {
     console.log('Base de datos conectada');
     await crearSuperAdmin();
@@ -14,4 +13,4 @@ sequelize.sync().then(async() => {
         console.log(`Servidor corriendo en http://localhost:${PORT}`)
     );
 })
-.catch(err => console.error('Error DB', err)); // Corregido .catch
+.catch(err => console.error('Error DB', err));
