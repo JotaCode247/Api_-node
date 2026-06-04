@@ -16,7 +16,7 @@ const listarUsuarios = async () => {
     attributes: { exclude: ['password'] }
   });
 };
-
+//no elimina en base de datos solo cambia el estado
 const desactivarUsuario = async (id) => {
 
   const usuario = await Usuario.findByPk(id);
