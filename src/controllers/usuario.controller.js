@@ -1,25 +1,41 @@
+const Usuario = require('../models/usuario.model');
 const usuarioService = require('../services/usuario.service');
 
 const crear = async (req, res) => {
-    try {
-        // Corregido: req.body para obtener los datos del formulario/JSON
-        const usuario = await usuarioService.crearUsuario(req.body);
-        res.status(201).json(usuario);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
+  try {
+    const usuario = await usuarioService.crearUsuario(req.body);
+    res.status(201).json(usuario);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
 
 const listar = async (req, res) => {
-    try {
-        const usuarios = await usuarioService.listarUsuarios();
-        res.json(usuarios);
-    } catch (error) {
-        res.status(500).json({ error: 'Error al obtener los usuarios' });
-    }
+  const usuarios = await usuarioService.listarUsuarios();
+  res.json(usuarios);
 };
 
-module.exports = {
-    crear,
-    listar
+const eliminar = async (req, res) => {
+  try {
+    const usuario = await usuarioService.desactivarUsuario(req.params.id);
+    res.json(usuario);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
+
+const actualiizar = async (req, res) => {
+  try {
+    const usuario = await usuarioService.actualizarUsuario(req.params.id, req.body.data);
+    res.json(usuario);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+}
+
+module.exports = {
+  crear,
+  listar,
+  eliminar,
+  actualiizar
+}

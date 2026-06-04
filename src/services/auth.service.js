@@ -1,54 +1,54 @@
 const Usuario = require('../models/usuario.model');
-const bcrypt= require('bcryptjs');
+const bcrypt = require('bcryptjs');
 
 const {
-    encriptarPassword
+  encriptarPassword
 
-} = require ('../utils/bcrypt')
+} = require('../utils/bcrypt')
 
 const {
-    generarJWT
+  generarJWT
 } = require('../utils/jwt')
 
-const registrar = async (data)=>{
-    const existeCorreo = 
+const registrar = async (data) => {
+  const existeCorreo =
     await Usuario.findOne({
-        where:{correo: data.correo}
+      where: { correo: data.correo }
     });
 
-    if(existeCorreo){
-        throw new Error('correo ya registrado ')
-    }
-    data.password=
+  if (existeCorreo) {
+    throw new Error('correo ya registrado ')
+  }
+  data.password =
     await encriptarPassword(data.password);
-    return await Usuario.create(data);
+  return await Usuario.create(data);
 };
 
 const login = async (
-    correo,
-    password
-)=>{
-    const usuario = await Usuario.findOne({
-        where:{correo}
-    });
+  correo,
+  password
+) => {
+  const usuario = await Usuario.findOne({
+    where: { correo }
+  });
 
-    if(!usuario){
-        throw new Error ('Usuario no existe ');
-    }
-    const validPassword= await bcrypt.compare(
-    password,usuario.password
-    );
+  if (!usuario) {
+    throw new Error('Usuario no existe ');
+  }
+  const validPassword = await bcrypt.compare(
+    password, usuario.password
+  );
 
-    if(!validPassword){
-        throw new Error('Password incorrecta');
-    }
+  if (!validPassword) {
+    throw new Error('Password incorrecta');
+  }
 
-    const token = generarJWT(usuario);
-    return {usuario, token};
+  const token = generarJWT(usuario);
+  return { usuario, token };
 
 };
 
 module.exports = {
-    registrar, 
-    login
+  registrar,
+  login
 }

@@ -1,19 +1,25 @@
-const express = require ('express');
+const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/auth.controller');
-const {registerValidator} = require('../validators/auth.validator');
-const {validarCampos} = require ('../Middlewares/validate.middleware');
+const { registerValidator } = require('../validators/auth.validator');
+const { validarCampos } = require('../Middlewares/validate.middleware');
+
+const { validarJWT } = require('../Middlewares/auth.Middleware');
 
 router.post(
-    '/registro',
-    registerValidator,
-    validarCampos,
-    authController.registro
+  '/registro',
+  registerValidator,
+  validarCampos,
+  authController.registro
 );
 
 router.post(
-    '/login',
-    authController.login
+  '/login',
+  authController.login
 );
-
-module.exports= router;
+router.get(
+  '/perfil',
+  validarJWT,
+  authController.perfil
+)
+module.exports = router;
